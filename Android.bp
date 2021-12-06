@@ -139,6 +139,20 @@ libclang_rt_prebuilt_library_static {
 }
 
 libclang_rt_prebuilt_library_static {
+    name: "libclang_rt.builtins-riscv64-android",
+    defaults: ["libclang_rt.builtins-android-default"],
+    host_supported: true,
+    arch: {
+        riscv64: {
+            enabled: true,
+        },
+    },
+    bazel_module: {
+        label: "//prebuilts/clang/host/linux-x86:libclang_rt",
+    },
+}
+
+libclang_rt_prebuilt_library_static {
     name: "libclang_rt.builtins-i686-android",
     defaults: ["libclang_rt.builtins-android-default"],
     arch: {
@@ -252,6 +266,19 @@ libclang_rt_prebuilt_library_shared {
 }
 
 libclang_rt_prebuilt_library_shared {
+    name: "libclang_rt.asan-riscv64-android",
+    defaults: ["libclang_rt.asan-android-default"],
+    check_elf_files: false,  // Bypass circular dependency between libc++
+    is_llndk: true,
+    host_supported: true,
+    arch: {
+        riscv64: {
+            enabled: true,
+        },
+    },
+}
+
+libclang_rt_prebuilt_library_shared {
     name: "libclang_rt.asan-i686-android",
     defaults: ["libclang_rt.asan-android-default"],
     check_elf_files: false,  // Bypass circular dependency between libc++
@@ -313,6 +340,18 @@ libclang_rt_prebuilt_library_shared {
     host_supported: true,
     arch: {
         arm64: {
+            enabled: true,
+        },
+    },
+}
+
+libclang_rt_prebuilt_library_shared {
+    name: "libclang_rt.ubsan_standalone-riscv64-android",
+    defaults: ["libclang_rt.ubsan_standalone-android-default"],
+    check_elf_files: false,  // Bypass circular dependency between libc++
+    host_supported: true,
+    arch: {
+        riscv64: {
             enabled: true,
         },
     },
@@ -485,6 +524,17 @@ libclang_rt_prebuilt_library_static {
     host_supported: true,
     arch: {
         arm64: {
+            enabled: true,
+        },
+    },
+}
+
+libclang_rt_prebuilt_library_static {
+    name: "libclang_rt.ubsan_minimal-riscv64-android",
+    defaults: ["libclang_rt.ubsan_minimal-android-default"],
+    host_supported: true,
+    arch: {
+        riscv64: {
             enabled: true,
         },
     },
@@ -734,6 +784,17 @@ libclang_rt_prebuilt_library_static {
     host_supported: true,
     arch: {
         arm64: {
+            enabled: true,
+        },
+    },
+}
+
+libclang_rt_prebuilt_library_static {
+    name: "libclang_rt.fuzzer-riscv64-android",
+    defaults: ["libclang_rt.fuzzer-android-default"],
+    host_supported: true,
+    arch: {
+        riscv64: {
             enabled: true,
         },
     },
